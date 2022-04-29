@@ -1,0 +1,44 @@
+[
+    {
+        "_id": 1,
+        "name": "CHILD SUPPORT",
+        "price": "300",
+        "description": "",
+        "img": "https://i.ibb.co/HqC5yv6/good-Education.png"
+    },
+    {
+        "_id": 2,
+        "name": "REFUGEE SHELTER",
+        "price": "100",
+        "description": "",
+        "img": "https://i.ibb.co/MhWyp1k/refuse-Shelter.png"
+    },
+    {
+        "_id": 3,
+        "name": "FOOD CHARITY",
+        "price": "150",
+        "description": ".",
+        "img": "https://i.ibb.co/cTfqmKZ/food-Charity.png"
+    },
+    {
+        "_id": 4,
+        "name": "CLEAN WATER FOR CHILDREN",
+        "price": "180",
+        "description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa.",
+        "img": "https://i.ibb.co/zm6vfhV/clean-Water.png"
+    },
+    {
+        "_id": 5,
+        "name": "GIVE A SEMINAR OF DRIVING SAFETY",
+        "price": "100",
+        "description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa.",
+        "img": "https://i.ibb.co/Bg5DWBj/drive-Safety.png"
+    },
+    {
+        "_id": 6,
+        "name": "GIVE IT HELP TO LOCAL ADULTS",
+        "price": "300",
+        "description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa",
+        "img": "https://i.ibb.co/zsDRbYf/ITHelp.png"
+    }
+]
