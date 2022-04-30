@@ -9,8 +9,8 @@ const Navbar = () => {
         <div className="d-flex">
         
         <CustomLink to="/">Home</CustomLink> 
-        <CustomLink to="/shop">Shop</CustomLink>
-        <CustomLink to="/about">About</CustomLink>
+        <CustomLink to="/additem">AddItem</CustomLink>
+        <CustomLink to="/manage">ManageInventory</CustomLink>
         <CustomLink to="/register">Register</CustomLink>
         </div> 
       

@@ -1,44 +1,62 @@
 [
     {
         "_id": 1,
-        "name": "CHILD SUPPORT",
-        "price": "300",
-        "description": "",
-        "img": "https://i.ibb.co/HqC5yv6/good-Education.png"
+        "name": "HATIL",
+        "price": "30000",
+        "description": "HATIL is considered to be the 'game-changer' in Bangladesh's furniture (ফার্নিচার) industry.",
+        "img": "https://i.ibb.co/vzWVPFT/furniture1.jpg",
+        "quantity":"500",
+        "soldItem":"158",
+        "supplierName":"Backhamm"
     },
     {
         "_id": 2,
-        "name": "REFUGEE SHELTER",
-        "price": "100",
-        "description": "",
-        "img": "https://i.ibb.co/MhWyp1k/refuse-Shelter.png"
+        "name": "PARTEX",
+        "price": "100000",
+        "description": "Partex Furniture(BD) is one of the Largest Furniture Manufacturers in Bangladesh.",
+        "img": "https://i.ibb.co/jVWybVS/furniture2.jpg",
+        "quantity":"1200",
+        "soldItem":"758",
+        "supplierName":"David"
     },
     {
         "_id": 3,
-        "name": "FOOD CHARITY",
-        "price": "150",
-        "description": ".",
-        "img": "https://i.ibb.co/cTfqmKZ/food-Charity.png"
+        "name": "IKEA",
+        "price": "135000",
+        "description": "IKEA is one of the top 10 furniture brands in the world due to its large online presence. IKEA’s website has over 12,000 listed products that generate 2.1 billion visitors per year",
+        "img": "https://i.ibb.co/yfcfTzM/furniture3.jpg",
+        "quantity":"1500",
+        "soldItem":"628",
+        "supplierName":"jhonson"
     },
     {
         "_id": 4,
-        "name": "CLEAN WATER FOR CHILDREN",
-        "price": "180",
-        "description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa.",
-        "img": "https://i.ibb.co/zm6vfhV/clean-Water.png"
+        "name": "Ashley HomeStore",
+        "price": "180000",
+        "description": "Ashley HomeStore is an American furniture store chain and a manufacturer of furniture products. Ashley HomeStore was founded 23 years ago in 1997 in Anchorage, Alaska, U.S. Ashley HomeStore’s headquarters are in Brandon, Florida, U.S..",
+        "img": "https://i.ibb.co/tXbhtf6/furniture4.jpg",
+        "quantity":"4500",
+        "soldItem":"1628",
+        "supplierName":"Millan"
     },
     {
         "_id": 5,
-        "name": "GIVE A SEMINAR OF DRIVING SAFETY",
+        "name": "Raymour & Flanigan",
         "price": "100",
-        "description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa.",
-        "img": "https://i.ibb.co/Bg5DWBj/drive-Safety.png"
+        "description": "Raymour & Flanigan, headquartered in Liverpool, New York, U.S, is an American furniture retail chain.  7th on BizVibe’s list of the top 10 furniture brands in the world.",
+        "img": "https://i.ibb.co/7jKX7hv/furniture5.jpg",
+        "quantity":"14500",
+        "soldItem":"6328",
+        "supplierName":"Flintoff"
     },
     {
         "_id": 6,
-        "name": "GIVE IT HELP TO LOCAL ADULTS",
-        "price": "300",
-        "description": "Lorem ipsum dolor sit amet, consectetu radipisi cing elitBeatae autem aperiam nequ quaera molestias voluptatibus harum ametipsa",
-        "img": "https://i.ibb.co/zsDRbYf/ITHelp.png"
+        "name": "Kartell",
+        "price": "300000",
+        "description": "The company grosses $100 million per year. In addition to its own stores, Kartell furniture products are sold by more than 150 independent retailers in the United States.",
+        "img": "https://i.ibb.co/dWsdcHs/furniture6.jpg",
+        "quantity":"3500",
+        "soldItem":"2628",
+        "supplierName":"Robinwood"
     }
 ]
