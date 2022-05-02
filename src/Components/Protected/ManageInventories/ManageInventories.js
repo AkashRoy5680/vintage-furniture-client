@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import useInventory from '../../hooks/useInventory';
-import "./ManageInventories.css"
+import "./table.css"
 
 const ManageInventories = () => {
   const navigate = useNavigate();
@@ -23,21 +23,26 @@ const ManageInventories = () => {
   return (
     <div>
       <h2>Manage Your Inventories</h2>
-      <div className="inventories w-50 mx-auto">
+      <div className="inventories w-100 mx-auto">
         <table className="">
           <tr>
             <th>Name</th>
-            <th>Price</th>
             <th>Description</th>
+            <th>Price</th>
             <th>Quantity</th>
+            <th>SoldItem</th>
+            <th>SupplierName</th>
+            
           </tr>
           {products.map((product) => {
             return (
               <tr key={product._id}>
                 <td>{product.name}</td>
-                <td>{product.price}</td>
                 <td>{product.description}</td>
+                <td>{product.price}</td>
                 <td>{product.quantity}</td>
+                <td>{product.soldItem}</td>
+                <td>{product.supplierName}</td>
                 <button onClick={() => handleDelete(product._id)}>
                   Delete
                 </button>
