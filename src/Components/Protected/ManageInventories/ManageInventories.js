@@ -1,51 +1,56 @@
-import React from 'react';
-import useProducts from '../../hooks/useProducts';
+import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import useInventory from '../../hooks/useInventory';
 import "./ManageInventories.css"
 
 const ManageInventories = () => {
-    const[products,setProducts]=useProducts();
+  const navigate = useNavigate();
+  const [products, setProducts] = useInventory();
 
-    const handleDelete=(id)=>{
+  const handleDelete = (id) => {
     //Delete a Data from Server
 
-    fetch(`http://localhost:5000/product/${id}`,{
-        method:"DELETE"
+    fetch(`http://localhost:5000/inventory/${id}`, {
+      method: "DELETE",
     })
-    .then(res=>res.json())
-    .then(data=>{
+      .then((res) => res.json())
+      .then((data) => {
         console.log(data);
-    })
-    };
-
-    return (
-       <div>
-        <h2>Manage Your Inventories</h2>
-        <div className='inventories w-50 mx-auto'>
-        <table>
-        <tr>
-          <th>Name</th>
-          <th>Price</th>
-          <th>Description</th>
-        </tr>
-        {products.map((product) => {
-          return (
-            <tr key={product._id}>
-              <td>{product.name}</td>
-              <td>{product.price}</td>
-              <td>{product.description}</td>
-              <button onClick={()=>handleDelete(product._id)}>Delete</button>
-            </tr>
-          )
-        })}
-      </table>
-         
-        </div>
-        <button className='mt-3'>Add New Item</button>
-       </div>
-    );
+      });
+    const remainingProducts = products.filter((product) => product._id !== id);
+    setProducts(remainingProducts);
+  };
+  return (
+    <div>
+      <h2>Manage Your Inventories</h2>
+      <div className="inventories w-50 mx-auto">
+        <table className="">
+          <tr>
+            <th>Name</th>
+            <th>Price</th>
+            <th>Description</th>
+            <th>Quantity</th>
+          </tr>
+          {products.map((product) => {
+            return (
+              <tr key={product._id}>
+                <td>{product.name}</td>
+                <td>{product.price}</td>
+                <td>{product.description}</td>
+                <td>{product.quantity}</td>
+                <button onClick={() => handleDelete(product._id)}>
+                  Delete
+                </button>
+              </tr>
+            );
+          })}
+        </table>
+      </div>
+      <button onClick={() => navigate("/additem")} className="m-3 p-3">
+        Add New Item
+      </button>
+    </div>
+  );
 };
-
-
-
 
 export default ManageInventories;

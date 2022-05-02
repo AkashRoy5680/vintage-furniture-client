@@ -1,20 +1,20 @@
-import React from 'react';
-import { useParams } from 'react-router-dom';
-import useProducts from '../../hooks/useProducts';
+import React from "react";
+import { useParams } from "react-router-dom";
+import useInventoryDetails from "../../hooks/useInventoryDetails";
 
-const Inventory = () => {
-   
-    const{id}=useParams();
-    const[products,setProducts]=useProducts();
-    return (
-        <div>
-            <h2>Inventory:{id}</h2>
-            <p> product name:{products.name}</p>
-            {
-                products.map(product=><div key={product._id} name={product.name} ></div>)
-            }
-        </div>
-    );
+  const Inventory = () => {
+  const {id}=useParams();
+  const [products, setProducts] = useInventoryDetails();
+
+  return (
+    <div>
+      <h3>Service id:{id}</h3>
+      <h4>{products.name}</h4>
+      
+        
+      <div className="text-center"></div>
+    </div>
+  );
 };
 
 export default Inventory;

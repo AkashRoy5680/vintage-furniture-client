@@ -7,7 +7,7 @@ import { useForm } from "react-hook-form";
     console.log(data);
 
     //send data to server
-    const url=`http://localhost:5000/product`
+    const url=`http://localhost:5000/inventory`
     fetch(url,{
         method:"POST",
         headers:{
