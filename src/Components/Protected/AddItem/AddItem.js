@@ -11,9 +11,11 @@ const AddItem = (event) => {
   const onSubmit = (data) => {
     console.log(data);
 
+    const email=user.email;
+
     //send data to server
     const url = `http://localhost:5000/inventory`;
-    fetch(url, user.parseInt("email"), {
+    fetch(url,{
       method: "POST",
       headers: {
         "content-Type": "application/json",
@@ -39,6 +41,12 @@ const AddItem = (event) => {
           className="mb-2"
           placeholder="Product Name"
           {...register("name")}
+        />
+        <input
+          type="email"
+          className="mb-2"
+          placeholder="Email"
+          {...register("email")}
         />
         <textarea
           className="mb-2"
