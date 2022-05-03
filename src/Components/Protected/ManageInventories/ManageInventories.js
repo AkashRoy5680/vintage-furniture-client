@@ -3,7 +3,7 @@ import React, { useState } from 'react';
 import { useNavigate} from 'react-router-dom';
 import useInventory from '../../hooks/useInventory';
 import "./table.css";
-import { faCoffee } from '@fortawesome/free-solid-svg-icons'
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
 const ManageInventories = () => {
   const navigate = useNavigate();
@@ -92,8 +92,8 @@ const handleRestock=(event)=>{
                 <td>{product.soldItem}</td>
                 <td>{product.supplierName}</td>
                 <button onClick={() => handleDelete(product._id)}>
-                  Delete
-                  <FontAwesomeIcon icon={faCoffee}></FontAwesomeIcon>
+                  
+                  <FontAwesomeIcon className='delete-icon' icon={faTrashAlt}></FontAwesomeIcon>
                 </button>
                 <button className='m-2'>Delivered</button>
               </tr>

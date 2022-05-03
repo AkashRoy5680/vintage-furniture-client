@@ -4,12 +4,14 @@ import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import auth from "../../Firebase/Firebase.init";
 
+
 const AddItem = (event) => {
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit,reset } = useForm();
   const [user, loading, error] = useAuthState(auth);
 
   const onSubmit = (data) => {
     console.log(data);
+    reset();
 
     const email=user.email;
 
@@ -27,14 +29,13 @@ const AddItem = (event) => {
         console.log("Data is",result);
         if (result.insertedId) {
           console.log("inserted id:", result.insertedId);
-          toast("Your Item is added !");
-          event.target.reset();
+          toast("Your Item is added !");        
         }
       });
   };
-
+  
   return (
-    <div className="w-50 mx-auto">
+    <div className="w-50 mx-auto ">
       <h2 className="mt-3 text-success">Add New Item ...</h2>
       <form className="d-flex flex-column" onSubmit={handleSubmit(onSubmit)}>
         <input
