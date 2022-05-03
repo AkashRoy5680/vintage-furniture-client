@@ -12,6 +12,7 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [agree, setAgree] = useState(false);
+  const[errorfix,setError]=useState("");
 
   const navigate = useNavigate();
 
@@ -106,8 +107,8 @@ const Register = () => {
             Accept furniture shop terms and conditions
           </label>
         </Form.Group>
-        <Button variant="success" type="submit">
-          Submit
+        <Button disabled ={!agree} variant="success" type="submit">
+          Register
         </Button>
         <p>
           Already have an account?{" "}

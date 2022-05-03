@@ -22,11 +22,11 @@ function App() {
     <div className="App">
       <Navbar></Navbar>
       <Routes>
-        <Route path="/" element={<Products></Products>}></Route>
-        <Route path="/home" element={<Home></Home>}></Route>
+        <Route path="/products" element={<Products></Products>}></Route>
+        <Route path="/" element={<Home></Home>}></Route>
         <Route path="/register" element={<Register></Register>}></Route>
         <Route path="/login" element={<Login></Login>}></Route>
-        <Route path="/inventory/:id" element={<Inventory></Inventory>}></Route>
+        <Route path="/singleinventory/:id" element={<Inventory></Inventory>}></Route>
         <Route path="/table" element={<ReactTable></ReactTable>}></Route>
         <Route
           path="/manage"

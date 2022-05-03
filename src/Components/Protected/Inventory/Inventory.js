@@ -1,10 +1,16 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import useInventoryDetails from "../../hooks/useInventoryDetails";
 
   const Inventory = () => {
   const {id}=useParams();
-  const [products, setProducts] = useInventoryDetails();
+  const [products, setProducts] = useState({});
+  useEffect( ()=>{
+    const url=`http://localhost:5000/inventory/${id}`;
+    fetch(url)
+    .then(res=>res.json())
+    .then(data=>setProducts(data))
+  },[])
 
   return (
     <div>

@@ -7,10 +7,10 @@ const Product = ({ product }) => {
   const navigate = useNavigate();
 
   const redirectInventory = (id) => {
-    navigate(`/inventory/${id}`);
+    navigate(`/singleinventory/${id}`);
   };
   return (
-    <div className="product">
+    <div style={{border:"2px solid orange"}} className="product shadow-lg ">
       <img className="w-100 mb-2" src={img} alt="" />
       <h3>{name}</h3>
       <button
