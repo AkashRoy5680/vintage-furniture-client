@@ -10,17 +10,21 @@ const Navbar = () => {
     <div>
       <nav style={{ sticky: "top", height: "80px" }} className="container-fluid d-flex  justify-content-between mt-2 bg-dark">
         
-        <div className="d-flex">
-          <CustomLink to="/">Home</CustomLink>
-          <CustomLink to="/additem">AddItem</CustomLink>
-          <CustomLink to="/manage">ManageInventory</CustomLink>
-          <CustomLink to="/register">Register</CustomLink>
-          <CustomLink to="/myitems">MyItems</CustomLink>
+        <div className="d-flex mt-2">
+          <CustomLink to="/">Home</CustomLink> 
           <CustomLink to="/blogs">Blogs</CustomLink>
           <CustomLink to="/table">Table</CustomLink>
         </div>
 
-        <div  className='d-flex'>
+        <div  className='d-flex mt-2'>
+        {
+           user && <>
+           <CustomLink to="/manage">ManageInventory</CustomLink>
+           <CustomLink to="/myitems">MyItems</CustomLink>
+           <CustomLink to="/additem">AddItem</CustomLink>
+           </>
+        }
+
         { user?
         <button className='btn btn-link text-decoration-none text-white' onClick={()=>signOut(auth)}> <span className='btn btn-success'>SignOut</span> <p>{user.displayName}</p></button> 
         :

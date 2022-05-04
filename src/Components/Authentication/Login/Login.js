@@ -8,6 +8,7 @@ import {
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { toast } from "react-toastify";
 import auth from "../../Firebase/Firebase.init";
+import useToken from "../../hooks/useToken";
 import Loading from "../Loading/Loading";
 import SocialLogin from "../SocialLogin/SocialLogin";
 
@@ -26,6 +27,8 @@ const Login = () => {
   const [sendPasswordResetEmail, sending, resetError] =
     useSendPasswordResetEmail(auth);
 
+  const[token]=useToken(user);
+
   const navigateRegistration = () => {
     navigate("/register");
   };
@@ -35,10 +38,9 @@ const Login = () => {
     const email = emailRef.current.value;
     const password = passwordRef.current.value;
     await signInWithEmailAndPassword(email, password);
-    const{data}=await axios.post("http://localhost:5000/login",{email});
-    console.log(data);
-    localStorage.setItem("accessToken",data.accessToken);
-    navigate(from, { replace: true });
+    
+    
+    //navigate(from, { replace: true });
   };
 
   const resetPassword = async () => {
@@ -51,8 +53,8 @@ const Login = () => {
     }
   };
 
-  if (user) {
-    //navigate(from, { replace: true });
+  if (token) {
+    navigate(from, { replace: true });
     console.log(user)
   }
 

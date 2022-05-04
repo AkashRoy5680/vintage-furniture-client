@@ -13,6 +13,8 @@ const ManageInventories = () => {
   const handleDelete = (id) => {
     //Delete a Data from Server
 
+    const proceed = window.confirm("Are you sure want to delete?");
+    if (proceed) {
     fetch(`http://localhost:5000/inventory/${id}`, {
       method: "DELETE",
     })
@@ -22,6 +24,7 @@ const ManageInventories = () => {
       });
     const remainingProducts = products.filter((product) => product._id !== id);
     setProducts(remainingProducts);
+    }
   };
 
   //update Quantity

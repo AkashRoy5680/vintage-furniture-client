@@ -5,6 +5,7 @@ import { useCreateUserWithEmailAndPassword } from "react-firebase-hooks/auth";
 import { Link, useNavigate } from "react-router-dom";
 import Loading from "../Loading/Loading";
 import SocialLogin from "../SocialLogin/SocialLogin";
+import useToken from "../../hooks/useToken";
 
 const Register = () => {
   const [name, setName] = useState("");
@@ -18,6 +19,7 @@ const Register = () => {
 
   const [createUserWithEmailAndPassword, user, loading, error] =
     useCreateUserWithEmailAndPassword(auth, { sendEmailVerification: true });
+  const[token]=useToken(user);
 
   const handleNameOnBlur = (event) => {
     setName(event.target.value);
@@ -48,7 +50,7 @@ const Register = () => {
     return <Loading></Loading>;
   }
 
-  if (user) {
+  if (token) {
     navigate("/home");
     console.log(user);
   }

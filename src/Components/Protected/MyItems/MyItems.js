@@ -12,7 +12,7 @@ const MyItems = () => {
     const navigate=useNavigate();
     useEffect( ()=>{
         const getitems=async()=>{
-            const email=user.email;
+            const email=user?.email;
             const url =`http://localhost:5000/items?email=${email}`;
             try{
                 const{data}=await axios.get(url,{
@@ -27,7 +27,7 @@ const MyItems = () => {
                 if(error.response.status===401||error.response.status===403){
                     signOut(auth);
                     navigate("/login");
-                    toast(error.message);
+                    alert(error.message);
                 }
             }
     }

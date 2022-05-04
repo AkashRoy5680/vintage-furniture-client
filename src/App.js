@@ -30,14 +30,19 @@ function App() {
         <Route path="/table" element={<ReactTable></ReactTable>}></Route>
         <Route
           path="/manage"
-          element={<ManageInventories></ManageInventories>}
-        ></Route>
+          element={<RequireAuth>
+          <ManageInventories></ManageInventories>
+          </RequireAuth>}>
+          </Route>
         <Route path="/additem" element={
         <RequireAuth>
           <AddItem></AddItem>
-        </RequireAuth>
-        }></Route>
-        <Route path="/myitems" element={<MyItems></MyItems>}></Route>
+        </RequireAuth>}>
+        </Route>
+        <Route path="/myitems" element={<RequireAuth>
+          <MyItems></MyItems>
+        </RequireAuth>}>
+        </Route>
         <Route path="/blogs" element={<Blogs></Blogs>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>
