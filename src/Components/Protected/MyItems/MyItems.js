@@ -1,3 +1,5 @@
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import axios from 'axios';
 import { signOut } from 'firebase/auth';
 import React, { useEffect, useState } from 'react';
@@ -5,9 +7,11 @@ import { useAuthState } from 'react-firebase-hooks/auth';
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../Firebase/Firebase.init';
+import useInventory from '../../hooks/useInventory';
 
 const MyItems = () => {
     const [items,setItems]=useState([]);
+    const [products, setProducts] = useInventory();
     const[user]=useAuthState(auth);
     const navigate=useNavigate();
     useEffect( ()=>{
@@ -32,7 +36,24 @@ const MyItems = () => {
             }
     }
     getitems();
-    },[user])
+    },[user]);
+
+    const handleDelete = (id) => {
+        //Delete user added Data from Server
+    
+        const proceed = window.confirm("Are you sure want to delete?");
+        if (proceed) {
+        fetch(`http://localhost:5000/myitems/${id}`, {
+          method: "DELETE",
+        })
+          .then((res) => res.json())
+          .then((data) => {
+            console.log(data);
+          });
+        const remainingItems = items.filter((item) => item._id !== id);
+        setItems(remainingItems);
+        }
+      };
 
     return (
         <div>
@@ -55,6 +76,9 @@ const MyItems = () => {
                 <td>{item.price}</td>
                 <td>{item.quantity}</td>
                 <td>{item.supplierName}</td>
+                <button onClick={() => handleDelete(item._id)}>
+                <FontAwesomeIcon className='delete-icon' icon={faTrashAlt}></FontAwesomeIcon>
+                </button>
               </tr>
             );
           })}

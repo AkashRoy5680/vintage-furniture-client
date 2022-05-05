@@ -16,6 +16,9 @@ import MyItems from "./Components/Protected/MyItems/MyItems";
 import Blogs from "./Components/Blogs/Blogs";
 import RequireAuth from "./Components/Protected/RequireAuth/RequireAuth";
 import ReactTable from "./Components/Protected/ManageInventories/ReactTable";
+import RestockItem from "./Components/Protected/RestockItem/RestockItem"
+
+
 
 function App() {
   return (
@@ -28,6 +31,7 @@ function App() {
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/singleinventory/:id" element={<Inventory></Inventory>}></Route>
         <Route path="/table" element={<ReactTable></ReactTable>}></Route>
+        <Route path="/update/:id" element={<RestockItem></RestockItem>}></Route>
         <Route
           path="/manage"
           element={<RequireAuth>
@@ -43,6 +47,7 @@ function App() {
           <MyItems></MyItems>
         </RequireAuth>}>
         </Route>
+       
         <Route path="/blogs" element={<Blogs></Blogs>}></Route>
         <Route path="*" element={<NotFound></NotFound>}></Route>
       </Routes>

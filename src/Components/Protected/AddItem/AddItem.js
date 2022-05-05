@@ -42,11 +42,13 @@ const AddItem = (event) => {
           className="mb-2"
           placeholder="Product Name"
           {...register("name")}
+          required
         />
         <input
           type="email"
           className="mb-2"
           placeholder="Email"
+          required
           {...register("email")}
         />
         <textarea

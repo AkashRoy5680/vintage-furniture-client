@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useState } from 'react';
-import { useNavigate} from 'react-router-dom';
+import { Link, useNavigate} from 'react-router-dom';
 import useInventory from '../../hooks/useInventory';
 import "./table.css";
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
@@ -27,50 +27,7 @@ const ManageInventories = () => {
     }
   };
 
-  //update Quantity
-/*
-  const handleUpdate=(id)=>{
-    const newQuantity=quantity-1;
-    const updateQuantity={newQuantity}
-    const url=`http://localhost:5000/inventory/${id}`;
-    fetch(url, {
-      method: "PUT",
-      headers: {
-        "content-Type": "application/json",
-      },
-      body: JSON.stringify(updateQuantity),
-    })
-    .then(res=>res.json())
-    .then(data=>{
-      console.log(data);
-      alert("Quantity Updated");
-    })
-} */
-/*
-//Restock Product
 
-const handleRestock=(event)=>{
-  event.preventDefault();
-  const product=event.target.product.value;
-  const updatedProduct={product};
-
-  //send data to server
-
-  const url=`http://localhost:5000/inventory/${id}`;
-  fetch(url,{
-      method:"PUT",
-      headers:{
-          "content-type":"application/json",
-      },
-      body:JSON.stringify(updatedProduct),
-  })
-  .then(res=>res.json())
-  .then(data=>{
-  console.log(data)
-  alert("product added successfully");
-  event.target.reset();
-  })
-}*/
   return (
     <div>
       <h2>Manage Your Inventories</h2>
@@ -99,6 +56,7 @@ const handleRestock=(event)=>{
                   <FontAwesomeIcon className='delete-icon' icon={faTrashAlt}></FontAwesomeIcon>
                 </button>
                 <button className='m-2'>Delivered</button>
+                <Link to={`/update/${product._id}`}><button>Restock</button></Link>
               </tr>
             );
           })}

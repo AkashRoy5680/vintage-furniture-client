@@ -15,7 +15,7 @@ import useInventoryDetails from "../../hooks/useInventoryDetails";
   return (
     <div>
       <h3>Service id:{id}</h3>
-      <h4>{products.name}</h4>
+      <h4>{products.length}</h4>
       
         
       <div className="text-center"></div>
