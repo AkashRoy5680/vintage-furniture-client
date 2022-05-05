@@ -27,7 +27,7 @@ const ManageInventories = () => {
 
   return (
     <div>
-       <h2>Manage Your Inventory {products.length}</h2>
+       <h2 className='m-3'>Manage Your Inventory</h2>
        <div className="inventories w-100 mx-auto">
         <table className="">
           <tr>

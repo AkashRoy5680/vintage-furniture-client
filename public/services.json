@@ -1,6 +1,6 @@
 [
   {
-    "_id": 1,
+  
     "name": "HATIL",
     "price": "30000",
     "description": "HATIL is considered to be the 'game-changer' in Bangladesh's furniture (ফার্নিচার) industry.",
@@ -10,7 +10,7 @@
     "supplierName": "Backhamm"
   },
   {
-    "_id": 2,
+  
     "name": "PARTEX",
     "price": "100000",
     "description": "Partex Furniture(BD) is one of the Largest Furniture Manufacturers in Bangladesh.",
@@ -20,7 +20,7 @@
     "supplierName": "David"
   },
   {
-    "_id": 3,
+   
     "name": "IKEA",
     "price": "135000",
     "description": "IKEA is one of the top 10 furniture brands in the world due to its large online presence. IKEA’s website has over 12,000 listed products that generate 2.1 billion visitors per year",
@@ -30,7 +30,7 @@
     "supplierName": "jhonson"
   },
   {
-    "_id": 4,
+    
     "name": "Ashley HomeStore",
     "price": "180000",
     "description": "Ashley HomeStore is an American furniture store chain and a manufacturer of furniture products. Ashley HomeStore was founded 23 years ago in 1997 in Anchorage, Alaska, U.S. Ashley HomeStore’s headquarters are in Brandon, Florida, U.S..",
@@ -40,7 +40,7 @@
     "supplierName": "Millan"
   },
   {
-    "_id": 5,
+   
     "name": "Raymour & Flanigan",
     "price": "100",
     "description": "Raymour & Flanigan, headquartered in Liverpool, New York, U.S, is an American furniture retail chain.  7th on BizVibe’s list of the top 10 furniture brands in the world.",
@@ -50,7 +50,7 @@
     "supplierName": "Flintoff"
   },
   {
-    "_id": 6,
+ 
     "name": "Kartell",
     "price": "300000",
     "description": "The company grosses $100 million per year. In addition to its own stores, Kartell furniture products are sold by more than 150 independent retailers in the United States.",

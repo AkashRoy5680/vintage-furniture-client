@@ -57,7 +57,7 @@ const MyItems = () => {
 
     return (
         <div>
-            <h2 className='text-primary m-3'>Your Items: </h2>
+            <h2 className='text-dark m-3'>Your Items: </h2>
             <div className="inventories w-100 mx-auto mb-5">
         <table className="">
           <tr>
@@ -76,7 +76,7 @@ const MyItems = () => {
                 <td>{item.price}</td>
                 <td>{item.quantity}</td>
                 <td>{item.supplierName}</td>
-                <button onClick={() => handleDelete(item._id)}>
+                <button className='m-3' onClick={() => handleDelete(item._id)}>
                 <FontAwesomeIcon className='delete-icon' icon={faTrashAlt}></FontAwesomeIcon>
                 </button>
               </tr>

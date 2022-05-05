@@ -36,7 +36,7 @@ const AddItem = (event) => {
   
   return (
     <div className="w-50 mx-auto ">
-      <h2 className="mt-3 text-success">Add New Item ...</h2>
+      <h2 className="mt-3 text-dark">Add New Item ...</h2>
       <form className="d-flex flex-column" onSubmit={handleSubmit(onSubmit)}>
         <input
           className="mb-2"
