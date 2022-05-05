@@ -1,7 +1,8 @@
 import React from 'react';
 import { useSignInWithGoogle } from 'react-firebase-hooks/auth';
 import { useLocation, useNavigate } from 'react-router-dom';
-import google from "../../../images/social/google.png"
+import google from "../../../images/social/google.png";
+import github from "../../../images/social/github.png";
 import auth from '../../Firebase/Firebase.init';
 import useToken from '../../hooks/useToken';
 import Loading from '../Loading/Loading';
@@ -35,6 +36,10 @@ const SocialLogin = () => {
             <button onClick={() => signInWithGoogle()} className='w-50 rounded-pill m-2'>
             <img className='pe-5' src={google} alt="" />
             <span className='ps-1'>continue with Google</span>
+            </button>
+            <button className='w-50 rounded-pill m-2'>
+            <img className='pe-5' src={github} alt="" />
+            <span className='ps-1'>continue with Github</span>
             </button>
         </div>
     );

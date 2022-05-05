@@ -1,14 +1,12 @@
+import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useState } from 'react';
-import { Link, useNavigate} from 'react-router-dom';
+import React from 'react';
+import { Link, useNavigate } from 'react-router-dom';
 import useInventory from '../../hooks/useInventory';
-import "./table.css";
-import { faTrashAlt } from '@fortawesome/free-solid-svg-icons'
 
 const ManageInventories = () => {
-  const navigate = useNavigate();
   const [products, setProducts] = useInventory();
-  const [quantity,setQuantity]=useInventory();
+  const navigate=useNavigate();
 
   const handleDelete = (id) => {
     //Delete a Data from Server
@@ -27,11 +25,10 @@ const ManageInventories = () => {
     }
   };
 
-
   return (
     <div>
-      <h2>Manage Your Inventories</h2>
-      <div className="inventories w-100 mx-auto">
+       <h2>Manage Your Inventory {products.length}</h2>
+       <div className="inventories w-100 mx-auto">
         <table className="">
           <tr>
             <th>Name</th>
@@ -40,6 +37,7 @@ const ManageInventories = () => {
             <th>Quantity</th>
             <th>SoldItem</th>
             <th>SupplierName</th>
+            <th className='bg-info'>D/D/R</th>
             
           </tr>
           {products.map((product) => {
@@ -52,11 +50,10 @@ const ManageInventories = () => {
                 <td>{product.soldItem}</td>
                 <td>{product.supplierName}</td>
                 <button onClick={() => handleDelete(product._id)}>
-                  
-                  <FontAwesomeIcon className='delete-icon' icon={faTrashAlt}></FontAwesomeIcon>
+                <FontAwesomeIcon className='delete-icon m-2' icon={faTrashAlt}></FontAwesomeIcon>
                 </button>
                 <button className='m-2'>Delivered</button>
-                <Link to={`/update/${product._id}`}><button>Restock</button></Link>
+                <Link to={`/update/${product._id}`}><button className='m-1'>Restock</button></Link>
               </tr>
             );
           })}
@@ -65,15 +62,6 @@ const ManageInventories = () => {
       <button onClick={() => navigate("/additem")} className="m-3 p-3">
         Add New Item
       </button>
-
-      <div className='m-3'>
-        <h3 className='text-success'>Restock the Items</h3>
-        <form >
-          <input className='m-2' type="text" name="product" placeholder='Import product' required /><br/>
-          <input type="submit" value="ItemRestock" />
-        </form>
-      </div>  
-     
     </div>
   );
 };

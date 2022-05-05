@@ -14,6 +14,7 @@ const Navbar = () => {
           <CustomLink to="/">Home</CustomLink> 
           <CustomLink to="/blogs">Blogs</CustomLink>
           <CustomLink to="/table">Table</CustomLink>
+          <CustomLink to="/newsletter">NewsLetter</CustomLink>
         </div>
 
         <div  className='d-flex mt-2'>
@@ -26,7 +27,7 @@ const Navbar = () => {
         }
 
         { user?
-        <button className='btn btn-link text-decoration-none text-white' onClick={()=>signOut(auth)}> <span className='btn btn-success'>SignOut</span> <p>{user.displayName}</p></button> 
+        <button className='btn btn-link text-decoration-none text-white' onClick={()=>signOut(auth)}> <span className='btn btn-success'>SignOut</span> <p className="text-warning">{user.displayName}</p></button> 
         :
         <CustomLink to="/login">Login</CustomLink>}
         </div>

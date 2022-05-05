@@ -15,7 +15,7 @@ const Home = () => {
             <div className=' container products-container '>
             {
                  newInventories.map(product=><Product 
-                    key={product.id} 
+                    key={product._id} 
                     product={product}>
                  </Product>)
             }

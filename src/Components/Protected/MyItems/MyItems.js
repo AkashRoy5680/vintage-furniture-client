@@ -66,7 +66,7 @@ const MyItems = () => {
             <th>Price</th>
             <th>Quantity</th>
             <th>SupplierName</th>
-            
+            <th className='bg-danger'>Delete</th>
           </tr>
           {items.map((item) => {
             return (
