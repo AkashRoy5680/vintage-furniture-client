@@ -18,6 +18,7 @@ import RequireAuth from "./Components/Protected/RequireAuth/RequireAuth";
 import ReactTable from "./Components/Protected/ManageInventories/ReactTable";
 import RestockItem from "./Components/Protected/RestockItem/RestockItem"
 import NewsLetter from "./Components/NewsLetter/NewsLetter";
+import Verification from "./Components/Authentication/Verification/Verification";
 
 
 
@@ -32,6 +33,7 @@ function App() {
         <Route path="/login" element={<Login></Login>}></Route>
         <Route path="/singleinventory/:id" element={<Inventory></Inventory>}></Route>
         <Route path="/table" element={<ReactTable></ReactTable>}></Route>
+        <Route path="/verify" element={<Verification></Verification>}></Route>
         <Route path="/update/:id" element={<RestockItem></RestockItem>}></Route>
         <Route path="/newsletter" element={<NewsLetter></NewsLetter>}></Route>
         <Route

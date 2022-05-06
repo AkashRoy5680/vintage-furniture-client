@@ -13,7 +13,7 @@ const Register = () => {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [agree, setAgree] = useState(false);
-  const[errorfix,setError]=useState("");
+  const[errormessage,setError]=useState("");
 
   const navigate = useNavigate();
 
@@ -39,7 +39,19 @@ const Register = () => {
 
   const handleSubmit = async (event) => {
     event.preventDefault();
+    if(password!==confirmPassword){
+      setError("Your password did not match")
+      return;
+  }
+  if(password.length<6){
+      setError("password must be 6 characters or longer")
+      return;
+  }
+  else{
+    navigate("/verify");
     await createUserWithEmailAndPassword(email, password);
+  }
+   
   };
 
   const navigateLogin = () => {
@@ -109,11 +121,12 @@ const Register = () => {
             Accept furniture shop terms and conditions
           </label>
         </Form.Group>
+        <p style={{color:"red"}}>{errormessage}</p>
         <Button disabled ={!agree} variant="success" type="submit">
           Register
         </Button>
         <p>
-          Already have an account?{" "}
+          Already have an account?
           <Link
             className="text-decoration-none"
             to="/login"

@@ -7,7 +7,7 @@ import auth from "../../Firebase/Firebase.init";
 
 const AddItem = (event) => {
   const { register, handleSubmit,reset } = useForm();
-  const [user, loading, error] = useAuthState(auth);
+  const [user] = useAuthState(auth);
 
   const onSubmit = (data) => {
     console.log(data);
@@ -48,8 +48,10 @@ const AddItem = (event) => {
           type="email"
           className="mb-2"
           placeholder="Email"
-          required
+          value={user.email}
+          readOnly
           {...register("email")}
+          
         />
         <textarea
           className="mb-2"
