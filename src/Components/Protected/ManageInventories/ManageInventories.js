@@ -1,13 +1,21 @@
 import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import useInventory from '../../hooks/useInventory';
 
 const ManageInventories = () => {
   const [products, setProducts] = useInventory();
-  const [quantity,setQuantity]=useState(0);
   const navigate=useNavigate();
+  const [deliver,setDeliver]=useState({});
+  let newDeliver=parseInt(deliver?.quantity)-1;
+  console.log(newDeliver)
+  useEffect( ()=>{
+    const url=`http://localhost:5000/inventory`;
+    fetch(url)
+    .then(res=>res.json())
+    .then(data=>setDeliver(data))
+    },[]);
 
  // console.log((quantity));
 
@@ -30,12 +38,10 @@ const ManageInventories = () => {
 
   //Delived button update method
 
-  const deliveredQuantity=(x)=>{
-    setQuantity(x);
-
-    console.log(x)
-    const updatedQuantity=quantity;
-    const url=`http://localhost:5000/deliver`;
+  const deliveredQuantity=(id)=>{
+     
+    const updatedQuantity={newDeliver};
+    const url=`http://localhost:5000/deliver/${id}`;
         fetch(url,{
             method:"PUT",
             headers:{
@@ -81,7 +87,7 @@ const ManageInventories = () => {
                 <button onClick={() => handleDelete(product._id)}>
                 <FontAwesomeIcon className='delete-icon m-2' icon={faTrashAlt}></FontAwesomeIcon>
                 </button>
-                <button onClick={()=>deliveredQuantity(parseInt(product.quantity)-1)} className='m-2'>Delivered</button>
+                <button onClick={()=>deliveredQuantity(product._id)} className='m-2'>Delivered</button>
               
                 <Link to={`/update/${product._id}`}><button className='m-1'>Restock</button></Link>
               </tr>

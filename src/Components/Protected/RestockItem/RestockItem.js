@@ -3,8 +3,10 @@ import { useParams } from 'react-router-dom';
 
         const RestockItem = () => {
         const{id}=useParams();
-        console.log(id);
+        //console.log(id);
         const [quantity,setQuantity]=useState({});
+        let stock=parseInt(quantity?.quantity);
+        console.log(stock);
         useEffect( ()=>{
         const url=`http://localhost:5000/inventory/${id}`;
         fetch(url)
@@ -15,8 +17,9 @@ import { useParams } from 'react-router-dom';
     
         const handleUpdateQuantity=(event)=>{
         event.preventDefault();
-        const quantity=event.target.quantity.value;
-        const updatedQuantity={quantity};
+        const quantity=parseInt(event.target.quantity.value);
+        const newQuantity=(stock+quantity);
+        const updatedQuantity={newQuantity};
 
         //send data to server
 
