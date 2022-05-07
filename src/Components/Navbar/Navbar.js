@@ -9,7 +9,8 @@ const Navbar = () => {
   return (
     <div>
       <nav style={{ sticky: "top", height: "80px" }} className="container-fluid d-flex  justify-content-between mt-2 bg-dark">
-        
+      
+      
         <div className="d-flex mt-2">
           <CustomLink to="/">Home</CustomLink> 
           <CustomLink to="/blogs">Blogs</CustomLink>

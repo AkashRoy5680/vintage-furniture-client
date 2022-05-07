@@ -5,8 +5,8 @@ import instagram from "../../images/social/instagram.png";
 import("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
 
 const Footer = () => {
- /* const today = new Date();
-const year = today.getFullYear();*/
+  const today = new Date();
+const year = today.getFullYear();
 
   return (
     <div className="container-fluid bg-dark text-white mt-3 p-3 ">
@@ -49,11 +49,11 @@ const year = today.getFullYear();*/
           <img style={{ margin: "3px" }} src={instagram} alt="" />
         </div>
       </div>
-     { /*<footer className="text-center">
+     <footer className="text-center">
         <p>
           <small>copyright @ <span className="text-warning">{year}</span> </small>
         </p>
-      </footer>*/}
+      </footer>
     </div>
   );
 };

@@ -1,24 +1,5 @@
 
-.inventories {
-    width: 100%;
-   
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  }
-    
-  table {
-    border: 2px solid forestgreen;
-    width: 800px;
-    height: 200px;
-    
-  }
-    
-  th {
-    border-bottom: 1px solid black;
-  }
-    
-  td {
-    text-align: center;
-  }
- 
+ .pagination .selected{
+   background-color: orange;
+   color: white;
+ }

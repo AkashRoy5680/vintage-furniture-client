@@ -3,14 +3,41 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import useInventory from '../../hooks/useInventory';
+import "./ManageInventories.css"
 
 const ManageInventories = () => {
-  const [products, setProducts] = useInventory();
+  //const [products, setProducts] = useInventory();
+  
   const navigate=useNavigate();
   const [deliver,setDeliver]=useState({});
-  let newDeliver=parseInt(deliver?.quantity)-1;
-  console.log(newDeliver)
-  useEffect( ()=>{
+  console.log(deliver)
+  let newDeliver=parseInt(deliver?.quantity);
+   //console.log(newDeliver)
+  const [pageCount,setpageCount]=useState(0);
+  const [page,setPage]=useState(0);
+  const [size,setSize]=useState(5);
+  const [products, setProducts] = useState([]);
+
+  //for pagination
+  useEffect(() => {
+    fetch(`http://localhost:5000/inventory?page=${page}&size=${size}`)
+      .then((res) => res.json())
+      .then((data) => setProducts(data));
+  }, [page,size]);
+
+  useEffect(()=>{
+    fetch(`http://localhost:5000/productCount`)
+    .then(res=>res.json())
+    .then(data=>{
+      const count=data.count;
+      const pages=Math.ceil(count/5);
+      setpageCount(pages);
+    })
+  },[]);
+
+  //for delivered button
+ 
+    useEffect( ()=>{
     const url=`http://localhost:5000/inventory`;
     fetch(url)
     .then(res=>res.json())
@@ -24,7 +51,7 @@ const ManageInventories = () => {
 
     const proceed = window.confirm("Are you sure want to delete?");
     if (proceed) {
-    fetch(`http://localhost:5000/inventory/${id}`, {
+    fetch(`http://localhost:5000/deliver/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -39,9 +66,8 @@ const ManageInventories = () => {
   //Delived button update method
 
   const deliveredQuantity=(id)=>{
-     
     const updatedQuantity={newDeliver};
-    const url=`http://localhost:5000/deliver/${id}`;
+    const url=`http://localhost:5000/restock/${id}`;
         fetch(url,{
             method:"PUT",
             headers:{
@@ -94,6 +120,19 @@ const ManageInventories = () => {
             );
           })}
         </table>
+        <div className=' w-25 mx-auto m-3 pagination'>
+          {
+            [...Array(pageCount).keys()]
+            .map(number=><button
+               className={page===number ? "selected":""}
+                onClick={()=>setPage(number)}
+          style={{marginRight:"10px",border:"2px solid orange"}}>{number+1}</button>)
+          }
+          <select onChange={e=>setSize(e.target.value)}>
+            <option value="5" selected>5</option>
+            <option value="10">10</option>
+          </select>
+        </div>
       </div>
       <button onClick={() => navigate("/additem")} className="m-3 p-3">
         Add New Item
