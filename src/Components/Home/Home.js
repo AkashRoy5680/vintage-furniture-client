@@ -14,7 +14,7 @@ const Home = () => {
         <div>
             <Banner></Banner>
             <h1 className='text-3xl text-center m-4 text-dark'>Quick View</h1>
-            <div className=' container products-container '>
+            <div className=' container products-container  '>
             {
                  newInventories.map(product=><Product 
                     key={product._id} 
