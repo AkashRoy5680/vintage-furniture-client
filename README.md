@@ -1,5 +1,12 @@
-# Vintage Furnuture hub
+# Vintage Furniture hub
 
+# Short Description
+This project is web interactive user friendly site for those who are passionate to buy vintage furniture. User can Quick view all the products and Select their product in their Cart.They can also delete from the cart when check out.If user buy a product, the quantity will automatically decrease from the original quantity.As well as admin can restock the item and it will updated the quantity.User can only view his/her product on the cart.
+
+# In this Projects -------
+- User authentication system
+- Added the quantiy of products
+- whenever product buy, the quantity automatically decrease
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
