@@ -12,7 +12,8 @@ const firebaseConfig = {
   storageBucket: "furniture-management-fab4b.appspot.com",
   messagingSenderid: "898675896450",
   appid: "1:898675896450:web:fadd09253871b2d934849b",
-  /*apiKey:process.env.REACT_APP_apiKey,
+/*
+  apiKey:process.env.REACT_APP_apiKey,
   authDomain:process.env.REACT_APP_authDomain,
   projectid:process.env.REACT_APP_projectid,
   storageBucket:process.env.REACT_APP_storageBucket,

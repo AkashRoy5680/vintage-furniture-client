@@ -5,20 +5,19 @@ import { toast } from "react-toastify";
 import auth from "../../Firebase/Firebase.init";
 import PageTitle from "../../PageTitle/PageTitle";
 
-
 const AddItem = (event) => {
-  const { register, handleSubmit,reset } = useForm();
+  const { register, handleSubmit, reset } = useForm();
   const [user] = useAuthState(auth);
 
   const onSubmit = (data) => {
     console.log(data);
     reset();
 
-    const email=user.email;
+    const email = user.email;
 
     //send data to server
-    const url = `http://localhost:5000/inventory`;
-    fetch(url,{
+    const url = `https://pacific-beach-83563.herokuapp.com/inventory`;
+    fetch(url, {
       method: "POST",
       headers: {
         "content-Type": "application/json",
@@ -27,17 +26,17 @@ const AddItem = (event) => {
     })
       .then((res) => res.json())
       .then((result) => {
-        console.log("Data is",result);
+        console.log("Data is", result);
         if (result.insertedId) {
           console.log("inserted id:", result.insertedId);
-          toast("Your Item is added !");        
+          toast("Your Item is added !");
         }
       });
   };
-  
+
   return (
     <div className="w-50 mx-auto ">
-       <PageTitle title="Additem"></PageTitle>
+      <PageTitle title="Additem"></PageTitle>
       <h2 className="mt-3 text-dark">Add New Item ...</h2>
       <form className="d-flex flex-column" onSubmit={handleSubmit(onSubmit)}>
         <input
@@ -53,7 +52,6 @@ const AddItem = (event) => {
           value={user.email}
           readOnly
           {...register("email")}
-          
         />
         <textarea
           className="mb-2"

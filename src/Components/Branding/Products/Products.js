@@ -9,7 +9,7 @@ const Products = () => {
   const [products, setProducts] = useState([]);
   const [user, loading, error] = useAuthState(auth);
   useEffect(() => {
-    fetch("http://localhost:5000/inventory")
+    fetch("https://pacific-beach-83563.herokuapp.com/inventory")
       .then((res) => res.json())
       .then((data) => setProducts(data));
   }, []);

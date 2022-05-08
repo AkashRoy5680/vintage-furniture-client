@@ -9,7 +9,8 @@ function CustomLink({ children, to }) {
     <div className=" p-2 font-semibold  text-decoration-none">
       <Link
         style={{
-          color: "white",
+          fontWeight: "bold",
+          color: "gray",
           textDecoration: "none",
           borderBottom: match ? "2px solid orange" : "",
         }}

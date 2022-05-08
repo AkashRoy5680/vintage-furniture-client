@@ -8,7 +8,7 @@ import { useParams } from 'react-router-dom';
         let stock=parseInt(quantity?.quantity);
         console.log(stock);
         useEffect( ()=>{
-        const url=`http://localhost:5000/inventory/${id}`;
+        const url=`https://pacific-beach-83563.herokuapp.com/inventory/${id}`;
         fetch(url)
         .then(res=>res.json())
         .then(data=>setQuantity(data))
@@ -23,7 +23,7 @@ import { useParams } from 'react-router-dom';
 
         //send data to server
 
-        const url=`http://localhost:5000/restock/${id}`;
+        const url=`https://pacific-beach-83563.herokuapp.com/restock/${id}`;
         fetch(url,{
             method:"PUT",
             headers:{

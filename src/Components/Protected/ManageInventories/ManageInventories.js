@@ -1,97 +1,97 @@
-import { faTrashAlt } from '@fortawesome/free-solid-svg-icons';
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import React, { useEffect, useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
-import useInventory from '../../hooks/useInventory';
-import PageTitle from '../../PageTitle/PageTitle';
-import "./ManageInventories.css"
+import { faTrashAlt } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import React, { useEffect, useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import useInventory from "../../hooks/useInventory";
+import PageTitle from "../../PageTitle/PageTitle";
+import "./ManageInventories.css";
 
 const ManageInventories = () => {
   //const [products, setProducts] = useInventory();
-  
-  const navigate=useNavigate();
-  const [deliver,setDeliver]=useState({});
-  console.log(deliver)
-  let newDeliver=parseInt(deliver?.quantity);
-   //console.log(newDeliver)
-  const [pageCount,setpageCount]=useState(0);
-  const [page,setPage]=useState(0);
-  const [size,setSize]=useState(5);
+
+  const navigate = useNavigate();
+  const [deliver, setDeliver] = useState({});
+  console.log(deliver);
+  let newDeliver = parseInt(deliver?.quantity);
+  //console.log(newDeliver)
+  const [pageCount, setpageCount] = useState(0);
+  const [page, setPage] = useState(0);
+  const [size, setSize] = useState(5);
   const [products, setProducts] = useState([]);
 
   //for pagination
   useEffect(() => {
-    fetch(`http://localhost:5000/inventory?page=${page}&size=${size}`)
+    fetch(
+      `https://pacific-beach-83563.herokuapp.com/inventory?page=${page}&size=${size}`
+    )
       .then((res) => res.json())
       .then((data) => setProducts(data));
-  }, [page,size]);
+  }, [page, size]);
 
-  useEffect(()=>{
-    fetch(`http://localhost:5000/productCount`)
-    .then(res=>res.json())
-    .then(data=>{
-      const count=data.count;
-      const pages=Math.ceil(count/5);
-      setpageCount(pages);
-    })
-  },[]);
+  useEffect(() => {
+    fetch(`https://pacific-beach-83563.herokuapp.com/productCount`)
+      .then((res) => res.json())
+      .then((data) => {
+        const count = data.count;
+        const pages = Math.ceil(count / 5);
+        setpageCount(pages);
+      });
+  }, []);
 
   //for delivered button
- 
-    useEffect( ()=>{
-    const url=`http://localhost:5000/inventory`;
-    fetch(url)
-    .then(res=>res.json())
-    .then(data=>setDeliver(data))
-    },[]);
 
- // console.log((quantity));
+  useEffect(() => {
+    const url = `https://pacific-beach-83563.herokuapp.com/inventory`;
+    fetch(url)
+      .then((res) => res.json())
+      .then((data) => setDeliver(data));
+  }, []);
+
+  // console.log((quantity));
 
   const handleDelete = (id) => {
     //Delete a Data from Server
 
     const proceed = window.confirm("Are you sure want to delete?");
     if (proceed) {
-    fetch(`http://localhost:5000/inventory/${id}`, {
-      method: "DELETE",
-    })
-      .then((res) => res.json())
-      .then((data) => {
-        console.log(data);
-      });
-    const remainingProducts = products.filter((product) => product._id !== id);
-    setProducts(remainingProducts);
+      fetch(`https://pacific-beach-83563.herokuapp.com/inventory/${id}`, {
+        method: "DELETE",
+      })
+        .then((res) => res.json())
+        .then((data) => {
+          console.log(data);
+        });
+      const remainingProducts = products.filter(
+        (product) => product._id !== id
+      );
+      setProducts(remainingProducts);
     }
   };
 
   //Delived button update method
 
-  const deliveredQuantity=(id)=>{
-    const updatedQuantity={newDeliver};
-    const url=`http://localhost:5000/restock/${id}`;
-        fetch(url,{
-            method:"PUT",
-            headers:{
-                "content-type":"application/json",
-            },
-            body:JSON.stringify(updatedQuantity),
-        })
-        .then(res=>res.json())
-        .then(data=>{
-        console.log(data)
+  const deliveredQuantity = (id) => {
+    const updatedQuantity = { newDeliver };
+    const url = `https://pacific-beach-83563.herokuapp.com/restock/${id}`;
+    fetch(url, {
+      method: "PUT",
+      headers: {
+        "content-type": "application/json",
+      },
+      body: JSON.stringify(updatedQuantity),
+    })
+      .then((res) => res.json())
+      .then((data) => {
+        console.log(data);
         alert("Delivered");
-    
-        })
-    
-  }
-
-
+      });
+  };
 
   return (
     <div>
-       <PageTitle title="Manage Inventories"></PageTitle>
-       <h2 className='m-3'>Manage Your Inventory</h2>
-       <div style={{overflow:"scroll"}} className="inventories w-100 mx-auto">
+      <PageTitle title="Manage Inventories"></PageTitle>
+      <h2 className="m-3">Manage Your Inventory</h2>
+      <div style={{ overflow: "scroll" }} className="inventories w-100 mx-auto">
         <table className="">
           <tr>
             <th>Name</th>
@@ -100,8 +100,7 @@ const ManageInventories = () => {
             <th>Quantity</th>
             <th>SoldItem</th>
             <th>SupplierName</th>
-            <th className='bg-info'>D/D/R</th>
-            
+            <th className="bg-info">D/D/R</th>
           </tr>
           {products.map((product) => {
             return (
@@ -113,25 +112,39 @@ const ManageInventories = () => {
                 <td>{product.soldItem}</td>
                 <td>{product.supplierName}</td>
                 <button onClick={() => handleDelete(product._id)}>
-                <FontAwesomeIcon className='delete-icon m-2' icon={faTrashAlt}></FontAwesomeIcon>
+                  <FontAwesomeIcon
+                    className="delete-icon m-2"
+                    icon={faTrashAlt}
+                  ></FontAwesomeIcon>
                 </button>
-                <button onClick={()=>deliveredQuantity(product._id)} className='m-2'>Delivered</button>
-              
-                <Link to={`/update/${product._id}`}><button className='m-1'>Restock</button></Link>
+                <button
+                  onClick={() => deliveredQuantity(product._id)}
+                  className="m-2"
+                >
+                  Delivered
+                </button>
+
+                <Link to={`/update/${product._id}`}>
+                  <button className="m-1">Restock</button>
+                </Link>
               </tr>
             );
-          })} 
+          })}
         </table>
-        <div className=' w-25 mx-auto m-3 pagination'>
-          {
-            [...Array(pageCount).keys()]
-            .map(number=><button
-               className={page===number ? "selected":""}
-                onClick={()=>setPage(number)}
-          style={{marginRight:"10px",border:"2px solid orange"}}>{number+1}</button>)
-          }
-          <select onChange={e=>setSize(e.target.value)}>
-            <option value="5" selected>5</option>
+        <div className=" w-25 mx-auto m-3 pagination">
+          {[...Array(pageCount).keys()].map((number) => (
+            <button
+              className={page === number ? "selected" : ""}
+              onClick={() => setPage(number)}
+              style={{ marginRight: "10px", border: "2px solid orange" }}
+            >
+              {number + 1}
+            </button>
+          ))}
+          <select onChange={(e) => setSize(e.target.value)}>
+            <option value="5" selected>
+              5
+            </option>
             <option value="10">10</option>
           </select>
         </div>
