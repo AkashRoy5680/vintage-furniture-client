@@ -1,9 +1,12 @@
 import React from 'react';
+import PageTitle from '../PageTitle/PageTitle';
 import "./Blogs.css"
 const Blogs = () => {
     return (
+        
         <div className='question m-3 p-4'>
-         
+          <PageTitle title="Blogs"></PageTitle>
+
          <h4> Q1:Difference between javascript and nodejs?</h4>
            <p> JavaScript is a lightweight, cross-platform, interpreted scripting programming language that is primarily used for client-side scripting. It's built into both Java and HTML. On the other hand, Node. js is a server-side scripting language based on the Google Chrome V8 engine. </p> <br/>
           <h4>Q2: When should you use nodejs and when should you use mongodb?</h4>

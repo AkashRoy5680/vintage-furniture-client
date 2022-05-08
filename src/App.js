@@ -19,13 +19,14 @@ import ReactTable from "./Components/Protected/ManageInventories/ReactTable";
 import RestockItem from "./Components/Protected/RestockItem/RestockItem"
 import NewsLetter from "./Components/NewsLetter/NewsLetter";
 import Verification from "./Components/Authentication/Verification/Verification";
+import Header from "./Components/Header/Header";
 
 
 
 function App() {
   return (
     <div className="App">
-      <Navbar></Navbar>
+      <Header></Header>
       <Routes>
         <Route path="/products" element={<Products></Products>}></Route>
         <Route path="/" element={<Home></Home>}></Route>

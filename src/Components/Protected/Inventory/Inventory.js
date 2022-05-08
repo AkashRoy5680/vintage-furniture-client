@@ -14,7 +14,7 @@ const Inventory = () => {
 
   return (
     <div style={{border:"2px solid orange", background:"lightblue", borderRadius:"15px"}} className="w-50 p-3 mx-auto m-3">
-    <div className="d-flex">
+    <div className="d-flex  ">
          <div className="w-75">
             <img src={products.img} class="card-img-top" alt="..." />
           </div>

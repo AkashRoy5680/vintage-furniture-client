@@ -8,6 +8,7 @@ import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-toastify';
 import auth from '../../Firebase/Firebase.init';
 import useInventory from '../../hooks/useInventory';
+import PageTitle from '../../PageTitle/PageTitle';
 
 const MyItems = () => {
     const [items,setItems]=useState([]);
@@ -57,8 +58,9 @@ const MyItems = () => {
 
     return (
         <div>
+          <PageTitle title="MyItems"></PageTitle>
             <h2 className='text-dark m-3'>Your Items: </h2>
-            <div className="inventories w-100 mx-auto mb-5">
+            <div style={{overflow:"scroll"}} className="inventories w-100 mx-auto mb-5">
         <table className="">
           <tr>
             <th>Name</th>

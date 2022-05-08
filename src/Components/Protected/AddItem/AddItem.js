@@ -3,6 +3,7 @@ import { useAuthState } from "react-firebase-hooks/auth";
 import { useForm } from "react-hook-form";
 import { toast } from "react-toastify";
 import auth from "../../Firebase/Firebase.init";
+import PageTitle from "../../PageTitle/PageTitle";
 
 
 const AddItem = (event) => {
@@ -36,6 +37,7 @@ const AddItem = (event) => {
   
   return (
     <div className="w-50 mx-auto ">
+       <PageTitle title="Additem"></PageTitle>
       <h2 className="mt-3 text-dark">Add New Item ...</h2>
       <form className="d-flex flex-column" onSubmit={handleSubmit(onSubmit)}>
         <input

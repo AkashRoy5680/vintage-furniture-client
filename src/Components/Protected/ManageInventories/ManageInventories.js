@@ -3,6 +3,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import useInventory from '../../hooks/useInventory';
+import PageTitle from '../../PageTitle/PageTitle';
 import "./ManageInventories.css"
 
 const ManageInventories = () => {
@@ -51,7 +52,7 @@ const ManageInventories = () => {
 
     const proceed = window.confirm("Are you sure want to delete?");
     if (proceed) {
-    fetch(`http://localhost:5000/deliver/${id}`, {
+    fetch(`http://localhost:5000/inventory/${id}`, {
       method: "DELETE",
     })
       .then((res) => res.json())
@@ -88,8 +89,9 @@ const ManageInventories = () => {
 
   return (
     <div>
+       <PageTitle title="Manage Inventories"></PageTitle>
        <h2 className='m-3'>Manage Your Inventory</h2>
-       <div className="inventories w-100 mx-auto">
+       <div style={{overflow:"scroll"}} className="inventories w-100 mx-auto">
         <table className="">
           <tr>
             <th>Name</th>
@@ -118,7 +120,7 @@ const ManageInventories = () => {
                 <Link to={`/update/${product._id}`}><button className='m-1'>Restock</button></Link>
               </tr>
             );
-          })}
+          })} 
         </table>
         <div className=' w-25 mx-auto m-3 pagination'>
           {
