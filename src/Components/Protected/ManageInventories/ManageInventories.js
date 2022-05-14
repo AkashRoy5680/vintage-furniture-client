@@ -11,7 +11,7 @@ const ManageInventories = () => {
 
   const navigate = useNavigate();
   const [deliver, setDeliver] = useState({});
-  console.log(deliver);
+  //console.log(deliver);
   let newDeliver = parseInt(deliver?.quantity);
   //console.log(newDeliver)
   const [pageCount, setpageCount] = useState(0);
@@ -70,9 +70,11 @@ const ManageInventories = () => {
 
   //Delived button update method
 
-  const deliveredQuantity = (id) => {
-    const updatedQuantity = { newDeliver };
-    const url = `https://pacific-beach-83563.herokuapp.com/restock/${id}`;
+  const deliveredQuantity = (id,quantity) => {
+    let stock=parseInt(quantity-1);
+    console.log(stock)
+    const updatedQuantity = { stock };
+    const url = `https://pacific-beach-83563.herokuapp.com/deliver/${id}`;
     fetch(url, {
       method: "PUT",
       headers: {
@@ -118,7 +120,7 @@ const ManageInventories = () => {
                   ></FontAwesomeIcon>
                 </button>
                 <button
-                  onClick={() => deliveredQuantity(product._id)}
+                  onClick={() => deliveredQuantity(product._id,product.quantity)}
                   className="m-2"
                 >
                   Delivered

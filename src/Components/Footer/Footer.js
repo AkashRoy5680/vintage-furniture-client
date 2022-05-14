@@ -2,7 +2,7 @@ import React from "react";
 import facebook from "../../images/social/facebook.png";
 import twitter from "../../images/social/twitter.png";
 import instagram from "../../images/social/instagram.png";
-import("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
+//import("https://fonts.googleapis.com/css2?family=Great+Vibes&display=swap");
 
 const Footer = () => {
   const today = new Date();
