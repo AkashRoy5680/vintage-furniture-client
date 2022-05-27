@@ -13,7 +13,7 @@ const AddItem = (event) => {
     console.log(data);
     reset();
 
-    const email = user.email;
+   // const email = user.email;
 
     //send data to server
     const url = `https://pacific-beach-83563.herokuapp.com/inventory`;
