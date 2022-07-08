@@ -25,7 +25,7 @@ const Banner = () => {
                 </Carousel.Caption>
             </Carousel.Item>
             <Carousel.Item>
-                <img style={{width:"1400px", height:"500px"}}
+                <img style={{width:"px", height:"500px"}}
                     className="d-block w-100"
                     src={banner2}
                     alt="Second slide"
